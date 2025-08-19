@@ -18,7 +18,7 @@
     --bg: #f5f5f5;
     --fg: #505050;
 
-    --h: #202020; /* header text */
+    --h: #101010; /* header text */
 
     /* url */
     --a: #3e2eb0;
@@ -83,13 +83,6 @@ a::after {
     content: "\2197";
 }
 
-button {
-    background-color: var(--btn-bg);
-    color: var(--btn-fg);
-    padding:  0 0.3rem;
-    border-radius: 0.5rem;
-}
-
 /* #0.3 - list */
 
 ul{
@@ -128,14 +121,8 @@ ul li::before {
 pre {
     background-color: var(--code-bg);
     color: var(--code-fg);
+    width: 100%;
     border-radius: 2rem;
-    padding: 1rem;
+    padding: 0 1rem;
 }
-
-.script div {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 1rem;
-}
-
 
