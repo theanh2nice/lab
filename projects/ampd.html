@@ -10,26 +10,26 @@
 
    <title>Theanh Lab</title>
 </head>
+
 <body>
-  
-   <div id="header">
+   <header>
       <img src="../assets/imgs/logo.webp" alt="logo">
       <h1>AMPD Scripts</h1>
-   </div>
+   </header>
 
    <main>
       <section id="intro">
          <h2>AMPD v1</h2>
-         <p>A simple script to ...</p>
+         <p>A simple script to download a music playlist with preset configuration</p>
       </section>
 
       <section id="features">
          <h3>Features</h3>
          <ul>
-            <li>Test idk</li>
-            <li>Test 2</li>
-            <li>Test 3</li>
-        </ul>
+            <li>Auto-installs all dependencies</li>
+            <li>Clean uninstall, no leftovers</li>
+            <li>Optimized pre-set configurations</li>
+         </ul>
       </section>
 
       <section id="usage">
@@ -40,8 +40,121 @@
       <section class="script">
          <h3>Script</h3>
          <pre><code id="code-1">
+#!/data/data/com.termux/files/usr/bin/bash
+clear
+
+echo "📦 Đang kiểm tra các công cụ cần thiết..."
+sleep 3
+
+tools_ok=1
+missing=()
+
+# ===== Kiểm tra từng công cụ =====
+for tool in python ffmpeg yt-dlp iconv; do
+  if ! command -v "$tool" >/dev/null 2>&1; then
+    tools_ok=0
+    missing+=("$tool")
+  fi
+done
+
+# ===== Nếu thiếu, tiến hành setup =====
+if [ "$tools_ok" -eq 0 ]; then
+  echo "⚠️ Thiếu các công cụ sau: ${missing[*]}"
+  echo "🔧 Bắt đầu cài đặt..."
+  sleep 2
+
+  pkg update -y && pkg upgrade -y
+  pkg install -y python ffmpeg libiconv
+  pip install -U yt-dlp
+  termux-setup-storage
+
+  echo "✅ Cài đặt hoàn tất!"
+  sleep 2
+else
+  echo "✅ Đã đủ công cụ, bỏ qua setup."
+  sleep 1
+fi
+
+sleep 5
+
+# ===== Chọn thư mục lưu =====
+cd /storage/emulated/0/
+
+while true; do
+  clear
+  echo "Bạn đang ở: $(pwd)"
+  echo "-----------------------------------------------"
+  ls -1 | sed 's/^/📄 /'
+  echo "-----------------------------------------------"
+  echo ""
+
+  read -p "📁 Nhập tên thư mục muốn lưu (thư mục phải tồn tại): " folder
+
+  if [ -z "$folder" ]; then
+    echo "📂 Dùng thư mục hiện tại: $(pwd)"
+    break
+  elif [ -d "$folder" ]; then
+    cd "$folder"
+    echo ""
+    echo "✅ Đã vào thư mục: $(pwd)"
+    break
+  else
+    echo "❌ Thư mục '$folder' không tồn tại. Thử lại..."
+    sleep 2
+  fi
+done
+
+# ===== Nhập URL =====
+  read -p "🔗 Nhập URL YouTube cần tải (playlist hoặc video): " url
+    sleep 2
+
+# ===== Tải xuống =====
+echo ""
+echo "🎬 Bắt đầu tải xuống..."
+sleep 2
+
+yt-dlp -f bestaudio --audio-format m4a -x --embed-thumbnail --add-metadata "$url"
+
+# ===== Hiển thị kết quả =====
+echo ""
+echo "✅ Script hoàn tất chu trình"
+echo ""
+
+file_count=$(find . -maxdepth 1 -type f | wc -l)
+echo "📦 Tổng số file: $file_count"
+echo ""
+
+read -p "👉 Nhấn Enter để thoát..."
+clear
+echo "chúc một ngày tốt lành!"
+sleep 2
+exit 0
          </code></pre>
       </section>
+
+      <section id="intro-2">
+         <h2>AMPD v2</h2>
+         <p>a simple script to download a music playlist with custom configuration</p>
+      </section>
+
+      <section id="features-2">
+         <h3>Features</h3>
+         <ul>
+            <li>Auto-installs all dependencies</li>
+            <li>Clean uninstall, no leftovers</li>
+            <li>Optimized pre-set configurations</li>
+         </ul>
+      </section>
+
+      <section id="usage-2">
+         <h3>Usage</h3>
+         <p>Copy and run the script in termux and follow the on-screen prompts</p>
+      </section>
+
+      <section class="script">
+         <h3>Script</h3>
+         <pre><code id="code-2">
+         </code></pre>
    </main>
 
    <script src="../js/copy-code.js"></script>
