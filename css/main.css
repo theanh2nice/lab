@@ -102,7 +102,6 @@ header {
     color: var(--layout-fg);
     width: 100%;
     padding: 1rem 0.8rem;
-    margin-bottom: 1.5rem;
     border-radius: 0 0 20px 20px;
     text-align: center;
 }
@@ -112,7 +111,7 @@ header img {
     height: auto;
 }
 
-main { margin: 0.2rem 0.8rem 3rem; }
+main { margin: 1.7rem 0.8rem 3.2rem; }
 
 footer{
     background-color: var(--layout-bg);
