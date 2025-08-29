@@ -112,7 +112,7 @@ header img {
     height: auto;
 }
 
-main { margin: 0.2rem 0.8rem; }
+main { margin: 0.2rem 0.8rem 3rem; }
 
 footer{
     background-color: var(--layout-bg);
