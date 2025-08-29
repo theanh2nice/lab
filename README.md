@@ -11,3 +11,6 @@ It's mainly a playground to try out ideas, showcase work, and maybe break things
 - Pure HTML + CSS (no frameworks)
 - Lightweight and simple
 - Projects collection
+
+## Note
+© 2025 Theanh. All rights reserved.  
