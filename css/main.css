@@ -70,6 +70,10 @@ header, footer {
   background: var(--layout-bg);
 }
 
+nav {
+  display: none;
+}
+
 main {
   flex: 1;
   margin: 2rem 1.5rem;
@@ -89,36 +93,22 @@ footer { position: static; }
 @media screen and (min-width: 769px) {
   body { font-size: 2.5rem; }
 
-  header {
-    border-radius: 1.5rem 0 0 1.5rem;
-    font-size: 1.5rem;
-    position: fixed;
-    top: 0;
-    left: 0;
-    margin: 1rem;
-    width: 30%;
-    height: 6rem;
-  }
-
-  main {
-    flex: 1;
-    margin: 9rem 1.5rem;
-  }
-
   section {
     max-width: 60rem;
+    margin: 0 auto 1.5rem;
+  }
+
+  header {
+    justify-content: space-between;
     margin: 1.5rem auto;
+    padding: 1rem 1.5rem;
+    width: 95%;
+    border-radius: 1.5rem;
 
   }
 
-  footer {
-    border-radius: 0 1.5rem 1.5rem 0;
-    font-size: 2rem;
-    position: fixed;
-    top: 0;
-    right: 0;
-    margin: 1rem;
-    width: 70%;
-    height: 6rem;
+  nav {
+    display: block;
   }
+
 }
