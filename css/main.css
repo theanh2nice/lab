@@ -37,7 +37,7 @@ html, body {
 body {
   display: flex;
   flex-direction: column;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   background: var(--bg);
   color:var(--text)
 }
