@@ -1,140 +1,124 @@
-/* #N - font-import */
-
+/* font-import */
 @font-face {
-    font-family: 'Montserrat';
-    src: url('../assets/fnts/Montserrat/Montserrat-SemiBold.woff2')
-    format('truetype');
-    font-style: normal;
+  font-family: 'Montserrat';
+  src: url('../assets/fnts/Montserrat/Montserrat-SemiBold.woff2') format('truetype');
+  font-style: normal;
 }
 
-/* #0 - Setup */
+/* Setup */
 :root {
-    /* body */
-    --bg: #121212;
-    --fg: #e0e0e0;
-
-    /* header & footer */
-    --layout-bg: #1e1e1e;
-    --layout-fg: #e0e0e0;
-
-    --card: #1e1e1e;
-    --h: #e0e0e0;
-
-    --a: #4fc3f7;
-    --a-hover: #ff0000;
-
-    --code-bg: #2d2d2d;
+  --bg: #121212;
+  --text: #e0e0e0;
+  --layout-bg: #1e1e1e;
+  --a: #4fc3f7;
+  --a-hover: #fc3434;
 
 }
 
-* { /* html */
-    -webkit-tap-highlight-color: transparent;
-    scroll-behavior: smooth;
-    box-sizing: border-box;
-    overflow-x: hidden;
-    padding: 0;
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
+*, *::before, *::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+html {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 62.5%;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
 }
 
 body {
-    background-color: var(--bg);
-    color: var(--fg);
+  display: flex;
+  flex-direction: column;
+  font-size: 2rem;
+  background: var(--bg);
+  color:var(--text)
+}
+
+/* Link */
+a {
+  color: var(--a);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s;
+}
+a::after { content: "↗"; margin-left: 5px; }
+a::before {
+  content: '';
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 0; height: 2px;
+  background: var(--a-hover);
+  transition: width 0.3s;
+}
+a:hover { color: var(--a-hover); }
+a:hover::before { width: 100%; }
+
+/* Layout */
+header, footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background: var(--layout-bg);
+}
+
+main {
+  flex: 1;
+  margin: 2rem 1.5rem;
 }
 
 section {
-    background-color: var(--card);
-    padding: 0.8rem;
-    margin-bottom: 1.5rem;
-    border-radius: 20px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  background: var(--layout-bg);
+  border-radius: 1.5rem;
 }
 
-/* #0.1 - Header-text */
-h2, h3 {
-    color: var(--h);
-    margin: 0.3rem 0 0.8rem;
-}
+footer { position: static; }
 
-/* #0.2 - link, button */
 
-a {
-    cursor: pointer;
-    color: var(--a);
-    color: #4fc3f7;
-    text-decoration: none;
-    position: relative;
-    transition: color 0.3s;
-}
+/* #PC */
+@media screen and (min-width: 769px) {
+  body { font-size: 2.5rem; }
 
-a::after {
-    content: "\2197"; /* mũi tên ↗ */
-    margin-left: 5px;
-}
-
-a::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 2px;
-    width: 0;
-    background: #29b6f6;
-    transition: width 0.3s;
-}
-
-a:hover::before {
-    width: 100%;
-}
-
-a:hover {
-    color: #29b6f6;
-}
-
-/* #0.3 - list */
-
-ul {
-    list-style: none;
-}
-
-/* #1 - header, main, footer */
-header {
-    background-color: var(--layout-bg);
-    color: var(--layout-fg);
-    width: 100%;
-    padding: 1rem 0.8rem;
-    border-radius: 0 0 20px 20px;
-    text-align: center;
-}
-
-header img {
-    width: 6rem;
-    height: auto;
-}
-
-main { margin: 1.7rem 0.8rem 3.2rem; }
-
-footer{
-    background-color: var(--layout-bg);
-    color: var(--layout-fg);
-    width: 100%;
-    padding: 1rem 0 1rem;
-    border-radius: 20px 20px 0 0;
-    text-align: center;
+  header {
+    border-radius: 1.5rem 0 0 1.5rem;
+    font-size: 1.5rem;
     position: fixed;
-    bottom: 0;
-}
+    top: 0;
+    left: 0;
+    margin: 1rem;
+    width: 30%;
+    height: 6rem;
+  }
 
+  main {
+    flex: 1;
+    margin: 9rem 1.5rem;
+  }
 
-/* #2 - content */
+  section {
+    max-width: 60rem;
+    margin: 1.5rem auto;
 
-/* For projects */
-pre {
-    background-color: var(--code-bg);
-    font-size: clamp(6px, 1.5vw, 16px);
-    overflow-x: hidden;
-    white-space: pre;
-    width: 100%;
-    padding: 0 1rem;
-    margin-bottom: 0.4rem;
-    border-radius: 16px;
+  }
+
+  footer {
+    border-radius: 0 1.5rem 1.5rem 0;
+    font-size: 2rem;
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 1rem;
+    width: 70%;
+    height: 6rem;
+  }
 }
