@@ -86,7 +86,12 @@ section {
   border-radius: 1.5rem;
 }
 
-footer { position: static; }
+footer {
+  position: static;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 
 /* #PC */
