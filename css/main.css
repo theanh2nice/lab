@@ -95,23 +95,4 @@ footer {
 /* #PC */
 @media screen and (min-width: 769px) {
   body { font-size: 2.5rem; }
-
-  section {
-    max-width: 60rem;
-    margin: 0 auto 1.5rem;
-  }
-
-  header {
-    justify-content: space-between;
-    margin: 1.5rem auto;
-    padding: 1rem 1.5rem;
-    width: 95%;
-    border-radius: 1.5rem;
-
-  }
-
-  nav {
-    display: block;
-  }
-
 }
