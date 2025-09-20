@@ -1,0 +1,140 @@
+/* #N - font-import */
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../assets/fnts/Montserrat/Montserrat-SemiBold.woff2')
+    format('truetype');
+    font-style: normal;
+}
+
+/* #0 - Setup */
+:root {
+    /* body */
+    --bg: #121212;
+    --fg: #e0e0e0;
+
+    /* header & footer */
+    --layout-bg: #1e1e1e;
+    --layout-fg: #e0e0e0;
+
+    --card: #1e1e1e;
+    --h: #e0e0e0;
+
+    --a: #4fc3f7;
+    --a-hover: #ff0000;
+
+    --code-bg: #2d2d2d;
+
+}
+
+* { /* html */
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--fg);
+}
+
+section {
+    background-color: var(--card);
+    padding: 0.8rem;
+    margin-bottom: 1.5rem;
+    border-radius: 20px;
+}
+
+/* #0.1 - Header-text */
+h2, h3 {
+    color: var(--h);
+    margin: 0.3rem 0 0.8rem;
+}
+
+/* #0.2 - link, button */
+
+a {
+    cursor: pointer;
+    color: var(--a);
+    color: #4fc3f7;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s;
+}
+
+a::after {
+    content: "\2197"; /* mũi tên ↗ */
+    margin-left: 5px;
+}
+
+a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background: #29b6f6;
+    transition: width 0.3s;
+}
+
+a:hover::before {
+    width: 100%;
+}
+
+a:hover {
+    color: #29b6f6;
+}
+
+/* #0.3 - list */
+
+ul {
+    list-style: none;
+}
+
+/* #1 - header, main, footer */
+header {
+    background-color: var(--layout-bg);
+    color: var(--layout-fg);
+    width: 100%;
+    padding: 1rem 0.8rem;
+    border-radius: 0 0 20px 20px;
+    text-align: center;
+}
+
+header img {
+    width: 6rem;
+    height: auto;
+}
+
+main { margin: 1.7rem 0.8rem 3.2rem; }
+
+footer{
+    background-color: var(--layout-bg);
+    color: var(--layout-fg);
+    width: 100%;
+    padding: 1rem 0 1rem;
+    border-radius: 20px 20px 0 0;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+}
+
+
+/* #2 - content */
+
+/* For projects */
+pre {
+    background-color: var(--code-bg);
+    font-size: clamp(6px, 1.5vw, 16px);
+    overflow-x: hidden;
+    white-space: pre;
+    width: 100%;
+    padding: 0 1rem;
+    margin-bottom: 0.4rem;
+    border-radius: 16px;
+}
