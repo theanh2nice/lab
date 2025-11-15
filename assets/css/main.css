@@ -59,12 +59,12 @@ a {
     transition: color 0.3s;
 }
 
-a::after {
+.arrow::after {
     content: "\2197"; /* mũi tên ↗ */
     margin-left: 5px;
 }
 
-a::before {
+.arrow::before {
     content: '';
     position: absolute;
     left: 0;
@@ -75,7 +75,7 @@ a::before {
     transition: width 0.3s;
 }
 
-a:hover::before {
+.arrow:hover::before {
     width: 100%;
 }
 
